@@ -15,6 +15,7 @@ public enum AIConditionType
 
 /// <summary>
 /// 条件基类
+/// 类似于动画状态机的 条件
 /// </summary>
 public abstract class AIConditionBase
 {

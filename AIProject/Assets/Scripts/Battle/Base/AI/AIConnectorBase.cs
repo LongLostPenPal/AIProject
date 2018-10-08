@@ -12,12 +12,12 @@ public enum AIConditionCheckType
 }
 
 /// <summary>
-/// 状态迁移器基类 
+/// 状态迁移器基类 只有一个功能: 判断链接是否成立
 /// 状态A 到状态B 之间的迁移类，是否迁移的判断条件为 AIConditionBase
+/// 类似于动画状态机之间的 线
 /// </summary>
 public abstract class AIConnectorBase
 {
-    private AIManager aiManager;
     /// <summary>
     /// 此 状态迁移器 用到的对比值
     /// </summary>
@@ -39,11 +39,10 @@ public abstract class AIConnectorBase
     /// 生成一个 状态迁移器
     /// </summary>
     /// <param name="manager"></param>
-    /// <param name="aiCondition"></param>
+    /// <param name="aiCondition">迁移条件</param>
     /// <returns></returns>
-    public AIConnectorBase CreatConnector(AIManager manager,AIConditionBase aiCondition)
+    public AIConnectorBase InitConnector(AIConditionBase aiCondition)
     {
-        this.aiManager = manager;
         this.aiCondition = aiCondition;
         CheckAndResetCondition();
         OnInitConnector();
